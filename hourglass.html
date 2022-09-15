@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ampulheta</title>
+  </head>
+  <body></body>
+  <script>
+    var numberInput = window.prompt("Digite um número maior ou igual a 20");
+    if (!Number(numberInput) || Number(numberInput) < 20) {
+      alert("Digite um número válido");
+    } else {
+      var space = "\40";
+      var index;
+      var division = Number(numberInput / 2);
+      var a = 1;
+      var caracter = "#";
+      index = numberInput - 2;
+      console.log(`${caracter.repeat(numberInput)}`);
+      for (i = 1; i < division; i++) {
+        console.log(
+          `#${space.repeat(i)}#${space.repeat(index - 4)}#${space.repeat(i)}#`
+        );
+        index -= 2;
+        if (index <= 3) {
+          index += 2;
+          i = division;
+        }
+      }
+      index = numberInput - 2;
+      for (i = division - 1; i > 1; i--) {
+        if (numberInput % 2 == 0) {
+          console.log(
+            `#${space.repeat(i - 1)}${caracter.repeat(a + 1)}${space.repeat(
+              i - 1
+            )}#`
+          );
+        } else {
+          console.log(
+            `#${space.repeat(i)}${caracter.repeat(a)}${space.repeat(i)}#`
+          );
+        }
+        a += 2;
+      }
+      console.log(`${caracter.repeat(numberInput)}`);
+    }
+  </script>
+</html>
